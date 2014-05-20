@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  </head>
+  <body>
+
+    <div ng-app="myApp">
+
+      <!-- Controller example -->
+      <div ng-controller="MyController">
+        <h1>{{ person }}</h1>
+        and their name:
+        <h2>{{ person.name }}</h2>
+        in uppercase:
+        <h2>{{ person.name | uppercase }}</h2>
+      </div>
+
+      <hr>
+
+      <!-- Parsing expressions -->
+      <div ng-controller="MySecondController">
+        <input ng-model="expr" type="text" placeholder="Enter an expression" />
+        <h2>{{ parsedValue }}</h2>
+        <small>tip: type person or person.name</small>
+      </div>
+
+      <hr>
+
+      <!-- Filter examples -->
+      <ul>
+        <!-- Formatting dates -->
+        <li>{{ 1288323623006 | date:'medium' }}</li>
+        <li>{{ 1288323623006 | date:'d MMM y' }}</li>
+        <!-- Filtering a list -->
+        <li>{{ ['Ari', 'Lerner', 'Likes', 'To', 'Eat', 'Pizza'] | filter:'e' }}</li>
+        <!-- For debugging purposes -->
+        <li>{{ {'name': 'Ari', 'City': 'San Francisco'} | json }}</li>
+        <!-- Using our custom filter -->
+        <li>{{ 'ginger loves dog treats' | customCapitalize }}</li>
+      </ul>
+
+    </div>
+
+    <script type="text/javascript" src="js/app.js"></script>
+
+  </body>
+</html>
